@@ -72,8 +72,8 @@ app.get('/logout', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-    const {name, email, password, login} = req.body
-    let val = {id: Date.now(), email, password, login, role: 'user'};
+    const {name, email, password, isAdmin} = req.body
+    let val = {id: Date.now(), name, email, password, role:isAdmin?'admin':'user'};
     users.push(val)
     let newValue = {
         ...val
@@ -83,7 +83,7 @@ app.post('/register', (req, res) => {
         newValue
     }
 
-    res.json(users)
+    res.json(newValue)
 
 
 
