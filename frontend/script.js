@@ -53,7 +53,15 @@ $('#btnLogout').onclick=()=>{
     })
 }
 
+$('#btnLogoutTop').onclick=()=>{
+    fetch('http://localhost:3000/admin', {
+        credentials: 'include',
+    }).then(res=>res.json()).then(data=>{
 
+        console.log(data)
+
+    })
+}
 
 
 

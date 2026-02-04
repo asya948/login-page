@@ -1,7 +1,8 @@
 import 'dotenv/config'
-import express from 'express'
+import express, {json} from 'express'
 import cors from 'cors'
 import session from 'express-session'
+import {readFile, writeFile} from 'fs/promises'
 
 
 const app = express()
@@ -60,7 +61,7 @@ app.get('/logout', (req, res) => {
 
    if(req.session.user){
        req.session.user = null
-       return res.json('logout users')
+       return res.json('logout users.json')
    }
     else{
         res.json({
@@ -71,25 +72,44 @@ app.get('/logout', (req, res) => {
     }
 })
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
     const {name, email, password, isAdmin} = req.body
-    let val = {id: Date.now(), name, email, password, role:isAdmin?'admin':'user'};
-    users.push(val)
-    let newValue = {
-        ...val
-    }
-    delete newValue.password
-    req.session.user ={
-        newValue
+    if(!name || !email || !password){
+       return  res.status(400).json({
+            message: 'invalid email or password',
+        })
     }
 
-    res.json(newValue)
+    const hashedPassword = await bcrypt.hash(password,10)
+
+    let val = {id: Date.now(), name, email, password:hashedPassword , role:isAdmin?'admin':'user'};
+    users.push(val)
+
+let data=await readFile('users.json','utf-8')
+data = JSON.parse(data)
+    data.push(val)
+    await writeFile('users.json',JSON.stringify(data,null,2))
+
+    delete val.password
+
+    req.session.user ={
+        newValue:val
+    }
+
+    res.json(val)
 
 
 
 })
 
+app.get('/admin', (req, res) => {
+    if(req.session.user.newValue.role === 'admin'){
 
+        return res.json(users)
+
+    }
+    res.json({message: 'not logged in'})
+})
 
 
 
