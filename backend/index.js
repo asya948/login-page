@@ -3,6 +3,7 @@ import express, {json} from 'express'
 import cors from 'cors'
 import session from 'express-session'
 import {readFile, writeFile} from 'fs/promises'
+import bcrypt from 'bcrypt'
 
 
 const app = express()
@@ -111,6 +112,19 @@ app.get('/admin', (req, res) => {
     res.json({message: 'not logged in'})
 })
 
+app.get('/check/:psw', async (req, res) => {
+    const { psw } = req.params
+
+    const hashedPassword = await bcrypt.hash('password', 10)
+
+    const isMatch = await bcrypt.compare(psw, hashedPassword)
+
+    if (isMatch) {
+        return res.json(true)
+    }
+
+    res.json({ message: 'password not match' })
+})
 
 
 app.listen(process.env.APP_PORT || 3000, () => {
