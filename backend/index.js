@@ -22,7 +22,12 @@ app.use(
     })
 )
 
-app.use(cors())
+app.use(
+    cors({
+        origin: 'http://localhost:63342',
+        credentials: true
+    })
+)
 
 
 let users = []
@@ -125,6 +130,22 @@ app.get('/check/:psw', async (req, res) => {
 
     res.json({ message: 'password not match' })
 })
+
+app.post('/change', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({
+            ok: false,
+            message: 'Not logged in'
+        })
+    }
+
+    res.json({
+        ok: true,
+        message: 'You can change password',
+        user: req.session.user
+    })
+})
+
 
 
 app.listen(process.env.APP_PORT || 3000, () => {

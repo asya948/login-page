@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "id": 1770240642268,
+    "name": "asya",
+    "email": "asya.hambardzumyan@mail.ru",
+    "password": "$2b$10$by4is3mucDfG76wDW0Yyi.wbqIsYfbdHrRVSJNeyWuUyk7XjFGcUG",
+    "role": "admin"
+  },
+  {
+    "id": 1770241356156,
+    "name": "asya",
+    "email": "asya.hambardzumyan@mail.ru",
+    "password": "$2b$10$dK6fiaeWwKZ76EKm4A4BSuQJ/2qVlu.tXhtOnBszD0HnEx9iFlVj2",
+    "role": "admin"
+  },
+  {
+    "id": 1770241447786,
+    "name": "asya",
+    "email": "asya.hambardzumyan@mail.ru",
+    "password": "$2b$10$pl0WbNpOwbLBY8JthPnPNe/2LTz5vE8yp8cZE9j0dFqUcKLpVqvRG",
+    "role": "admin"
+  },
+  {
+    "id": 1770241522728,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$v5nnTq71crmHtuXnBx3FuO2CpLLvzfEBrSMEvcRWBjYsuzs8T9p7W",
+    "role": "admin"
+  },
+  {
+    "id": 1770241664935,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$4Ug14QtdzD4ifieykV8dne/HRQ6ChwrELqGG.frxdvWmxNDWqzL6G",
+    "role": "admin"
+  },
+  {
+    "id": 1770241748242,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$qhcnKDjhz8Ha7yRkiu243ePQATbMSYu9L1VJIYs899Q8U.nxp3mFK",
+    "role": "user"
+  },
+  {
+    "id": 1770241803448,
+    "name": "asya",
+    "email": "asya.hambardzumyan@mail.ru",
+    "password": "$2b$10$GWTR4Lfr0yuI9HxVcpANb.WlEt6UNsB3.t8epZHxydBfDjMdSbJA.",
+    "role": "admin"
+  },
+  {
+    "id": 1770241915044,
+    "name": "yana",
+    "email": "yana.2025@mail.ru",
+    "password": "$2b$10$aMPeUO0fZp/4ICLgXorAweGe7ngysjUyRUDWNxS44Z46Qxu6li/RW",
+    "role": "admin"
+  },
+  {
+    "id": 1770242020808,
+    "name": "yana",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$ySJwpwV7yU28KtCz2vx.GuAphrtXBORVVfYLzpalKv4xCqHL5NJsu",
+    "role": "admin"
+  },
+  {
+    "id": 1770242045386,
+    "name": "yana",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$Z3QiEXc5dEIfxMkaTtE9AeQejsUIjqnYsOeRTVcgtxCqmJJu2nD7e",
+    "role": "admin"
+  },
+  {
+    "id": 1770242093535,
+    "name": "yana",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$Ps2uhxmDQqT5i8nG1Z3UBeX7.0JpxvROAWjVfwHOc8QqhnPcjoJaW",
+    "role": "admin"
+  },
+  {
+    "id": 1770242391597,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$Dt9R.M9TnsCW3ZWThDj6F.6cnU4.q0U18HGx5HlKt/g/sajLS38LO",
+    "role": "admin"
+  }
+]

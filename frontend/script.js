@@ -63,5 +63,39 @@ $('#btnLogoutTop').onclick=()=>{
     })
 }
 
+$('#tabChangePass').onclick=()=>{
+    fetch('http://localhost:3000/change', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',accept: 'application/json' },
+        credentials: 'include',
+    }).then(res=>res.json()).then(data=>{
+        console.log(data)
+        $('.nav-item').classList.remove('active');
+        $('.nav-link').classList.add('d-none');
+
+    })
+}
 
 
+// document.querySelector('[data-tab="tabChangePass"]').onclick = () => {
+//     fetch('http://localhost:3000/change', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         },
+//         credentials: 'include',
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data)
+//
+//             document.querySelectorAll('.nav-link').forEach(el => {
+//                 el.classList.remove('active')
+//             })
+//
+//             document.querySelectorAll('.nav-item').forEach(el => {
+//                 el.classList.add('d-none')
+//             })
+//         })
+// }
