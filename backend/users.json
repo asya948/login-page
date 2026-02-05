@@ -82,5 +82,19 @@
     "email": "asya@mail.ru",
     "password": "$2b$10$Dt9R.M9TnsCW3ZWThDj6F.6cnU4.q0U18HGx5HlKt/g/sajLS38LO",
     "role": "admin"
+  },
+  {
+    "id": 1770242629319,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$Y6eBeyQ5UQaXf1RuufoxqOL/VgpBO5e.UYfv8ZnqYzspFUWObSNvO",
+    "role": "admin"
+  },
+  {
+    "id": 1770242696008,
+    "name": "asya",
+    "email": "asya@mail.ru",
+    "password": "$2b$10$hXfBL0eL5nnrAkaz9xL.1.M6ylkuz34jmimsb2HYZpW4vKr.4ydHa",
+    "role": "admin"
   }
 ]
