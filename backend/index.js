@@ -4,6 +4,7 @@ import cors from 'cors'
 import session from 'express-session'
 import {readFile, writeFile} from 'fs/promises'
 import bcrypt from 'bcrypt'
+import router from "./router/index.js";
 
 
 const app = express()
