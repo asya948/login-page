@@ -1,5 +1,9 @@
 const $=s=>document.querySelector(s);
-fetch('http://localhost:3000/profile').then(res=>res.json()).then(data=>{
+const $$=s=>document.querySelectorAll(s);
+
+
+fetch('http://localhost:3000/users/profile',{ credentials: 'include' }).then(res=>res.json()).then(data=>{
+
 if(data.message){
    console.log('login')
     return
@@ -15,6 +19,10 @@ console.log(data)
 })
 
 
+
+
+
+
 $('#save').onclick=()=> {
     let regName = $('#regName')
     let regEmail = $('#regEmail')
@@ -26,7 +34,7 @@ $('#save').onclick=()=> {
         alert('sxal')
         return false
     }
-fetch('http://localhost:3000/register', {
+fetch('http://localhost:3000/users/profile', {
     method: 'POST',
     headers: {'Content-Type': 'application/json',accept: 'application/json' },
     credentials: 'include',
@@ -44,7 +52,7 @@ fetch('http://localhost:3000/register', {
 }
 
 $('#btnLogout').onclick=()=>{
-    fetch('http://localhost:3000/logout', {
+    fetch('http://localhost:3000/users/logout', {
         credentials: 'include',
     }).then(res=>res.json()).then(data=>{
         console.log(data)
@@ -54,7 +62,7 @@ $('#btnLogout').onclick=()=>{
 }
 
 $('#btnLogoutTop').onclick=()=>{
-    fetch('http://localhost:3000/admin', {
+    fetch('http://localhost:3000/users/admin', {
         credentials: 'include',
     }).then(res=>res.json()).then(data=>{
 
@@ -63,22 +71,55 @@ $('#btnLogoutTop').onclick=()=>{
     })
 }
 
-$('#tabChangePass').onclick=()=>{
-    fetch('http://localhost:3000/change', {
+$('[data-tab="tabChangePass"]').onclick = () => {
+    const oldPassword = $('#oldPassword').value
+    const newPassword = $('#newPassword').value
+
+    fetch('http://localhost:3000/users/change-password', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json',accept: 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
         credentials: 'include',
-    }).then(res=>res.json()).then(data=>{
-        console.log(data)
-        $('.nav-item').classList.remove('active');
-        $('.nav-link').classList.add('d-none');
-
+        body: JSON.stringify({
+            oldPassword,
+            newPassword
+        })
     })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+
+           $$('.nav-link').forEach(el => {
+                el.classList.remove('active')
+            })
+
+           $$('.nav-item').forEach(el => {
+                el.classList.add('d-none')
+            })
+        })
 }
+
+
+
+
+// $('#tabChangePass').onclick=()=>{
+//     fetch('http://localhost:3000/change', {
+//         method: 'POST',
+//         headers: {'Content-Type': 'application/json',accept: 'application/json' },
+//         credentials: 'include',
+//     }).then(res=>res.json()).then(data=>{
+//         console.log(data)
+//         $('.nav-item').classList.remove('active');
+//         $('.nav-link').classList.add('d-none');
+//
+//     })
+// }
 
 
 // $('[data-tab="tabChangePass"]').onclick = () => {
-//     fetch('http://localhost:3000/change', {
+//     fetch('http://localhost:3000/users/changePassword', {
 //         method: 'POST',
 //         headers: {
 //             'Content-Type': 'application/json',
